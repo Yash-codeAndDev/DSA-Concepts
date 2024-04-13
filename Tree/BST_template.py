@@ -35,13 +35,13 @@ class BinaryTree:
             print(node.val)
             self._display_inorder_recursive(node.right)
     
+if __name__ == "__main__":
+    BST_Tree = BinaryTree()
+    num_nodes = int(input("Enter the number of nodes in the tree: "))
+    print("Enter the nodes:")
+    for _ in range(num_nodes):
+        key = int(input())
+        BST_Tree.insert(key)
 
-BST_Tree = BinaryTree()
-num_nodes = int(input("Enter the number of nodes in the tree: "))
-print("Enter the nodes:")
-for _ in range(num_nodes):
-    key = int(input())
-    BST_Tree.insert(key)
-
-print("Inorder Traversal of BST:")
-BST_Tree.display_inorder()
+    print("Inorder Traversal of BST:")
+    BST_Tree.display_inorder()
