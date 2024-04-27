@@ -52,7 +52,7 @@ class BellmanFord:
 
         print("Shortest distance from source: ")
         for i in range(self.nodes):
-            print("{} -> {}".format(i,dist[i]))
+            print("{} -> {}".format(src,dist[i]))
 
 if __name__ == '__main__':
    obj = BellmanFord()
