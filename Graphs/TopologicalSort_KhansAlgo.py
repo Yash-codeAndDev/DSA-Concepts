@@ -1,4 +1,4 @@
-class TopoSortDFS:
+class TopoSortKhansAlgo:
 
     def __init__(self) -> None:
         self.nodes = 0
@@ -47,7 +47,7 @@ class TopoSortDFS:
         
 
 if __name__ == '__main__':
-    obj = TopoSortDFS()
+    obj = TopoSortKhansAlgo()
 
     # obj.printAdjList()
     obj.printToposort()
