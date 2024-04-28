@@ -44,12 +44,12 @@ class Dijkstra:
 
         while pq:
 
-            d, u = heapq.heappop(pq)
+            dis, u = heapq.heappop(pq)
 
             for v, weight in self.adjList[u]:
                 
-                if dist[v] > dist[u] + weight:
-                    dist[v] = dist[u] + weight
+                if dis + weight < dist[v]:
+                    dist[v] = dis + weight
                     heapq.heappush(pq, (dist[v] , v))
         
         for i in range(self.nodes):
