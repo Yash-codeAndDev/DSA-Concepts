@@ -25,11 +25,11 @@ class BridgeInGraph:
         self.addEdge(4,5)
 
         self.addEdge(5,6)
-        self.addEdge(5,8)
-        self.addEdge(6,7)
+        self.addEdge(5,7)
+        self.addEdge(6,8)
         self.addEdge(7,8)
-        self.addEdge(7,9)
 
+        self.addEdge(8,9)
         self.addEdge(9,10)
         self.addEdge(10,11)
         self.addEdge(9,11)
@@ -40,22 +40,29 @@ class BridgeInGraph:
 
     def dfs(self, u , parent, vis, tim, low,bridges):
         
+        print("{} -> {}".format(u,parent))
         vis[u] = True
         tim[u] = self.steps 
         low[u] = self.steps
+        print("{} | {}".format(tim[u],low[u]))
         self.steps += 1
 
         for x in self.adjList[u]:
             if x == parent:
                 continue
             if vis[x] == False:
+                print("Inside If")
                 self.dfs(x,u,vis,tim,low,bridges)
                 low[u] = min(low[u],low[x])
+
+                print(" # ",low)
                 if low[x] > tim[u]:
                     bridges.append((x,u))
             else:
+                print("Inside Else")
+                print("$",low)
                 low[u] = min(low[u],low[x])
-
+                print("low ->",low)
 
 
 
