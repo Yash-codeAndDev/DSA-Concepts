@@ -9,14 +9,14 @@ class Node{
 
     Node(int value){
         this->data = value;
-        height = 1;
+        height = 0;
         left = right = NULL;
     }
 };
 
 int getHeight(Node *root){
     if(!root){
-        return 0;
+        return -1;
     }
     return root->height;
 }
@@ -56,12 +56,12 @@ Node* leftRotation(Node* root){
     return child;
 }
 
-Node* insert(Node *root, int key){
-
+Node* insert(Node *root, int key)
+{
     if(!root){
         return new Node(key);
     }
-
+  
     if(key < root->data){
         root->left = insert(root->left, key);
     }else if(key > root->data){
@@ -73,7 +73,6 @@ Node* insert(Node *root, int key){
 
     // updating height
     root->height = 1 + max(getHeight(root->left),getHeight(root->right));
-
 
     // checking balanced or not
     int balance_factor = getBalance(root);
@@ -114,14 +113,23 @@ int main(){
 
     Node *root = NULL;
 
-    root = insert(root, 10);
-    root = insert(root, 20);
-    root = insert(root, 30);
-    root = insert(root, 50);
-    root = insert(root, 70);
+    cout<<"node inserted : 3 "<<endl;
+    root = insert(root, 3);
+
+    cout<<"node inserted : 2 "<<endl;
+    root = insert(root, 2);
+
+    cout<<"node inserted : 4 "<<endl;
+    root = insert(root, 4);
+
+    cout<<"node inserted : 5 "<<endl;
     root = insert(root, 5);
-    root = insert(root, 100);
-    root = insert(root, 95);
+
+    cout<<"node inserted : 6 "<<endl;
+    root = insert(root, 6);
+    // root = insert(root, 5);
+    // root = insert(root, 100);
+    // root = insert(root, 95);
 
 
     cout<<"Preorder : "<<endl;
