@@ -49,7 +49,7 @@ class BinarySearchTree{
 
         // if element is not present
         if(!root){
-            return NULL;
+            return root;
         }
 
         if(target < root->data ){
